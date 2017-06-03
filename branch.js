@@ -4,8 +4,8 @@ function Branch(begin, end) {
   this.finished = false;
 
   this.jitter = function() {
-    this.end.x += random(-1, 1);
-    this.end.y += random(-1, 1);
+    this.end.x += random(vol);
+    this.end.y += random(vol);
   }
 
   // shows each branch of the tree
