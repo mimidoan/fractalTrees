@@ -43,7 +43,7 @@ function mousePressed() {
   }
   count++;
 
-  if (count === 6) {
+  if (count % 2 === 0 ) {
     for (var i = 0; i < tree.length; i++) {
       if (!tree[i].finished) {
         var leaf = tree[i].end.copy();
@@ -55,17 +55,22 @@ function mousePressed() {
 }
 
 function draw() {
-  background(0);
+
   vol = amp.getLevel();
-  col = map(vol, 0, 255, 0, 1);
+  col = vol*255;
+  background(col, col, col);
+
+
 
   for (var i = 0; i < tree.length; i++) {
     tree[i].show();
-    // tree[i].jitter();
+  //  fill(random(255), random(255), random(255));
+    //tree[i].jitter();
   }
 
+
   for (var i = 0; i < leaves.length; i++) {
-    fill(255, 0, 100, 100);
+    fill(col, random(255), col);
     noStroke();
     ellipse(leaves[i].x, leaves[i].y, 8, 8);
     leaves[i].y += random(0, 2);
